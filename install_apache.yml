@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install apache2 package
+    package:
+      name: httpd
+      state: latest
+  - name: install php support
+    package:
+      name: php
+      state: absent
