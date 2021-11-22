@@ -4,11 +4,10 @@
   become: true
   tasks:
 
-  - name: install apache2 package
+  - name: install apache and php package
     package:
-      name: httpd
+      name:
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
       state: latest
-  - name: install php support
-    package:
-      name: php
-      state: absent
+      update_cache: yes
